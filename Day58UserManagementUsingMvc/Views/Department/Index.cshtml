@@ -1,0 +1,34 @@
+﻿@model List<Day58UserManagementUsingMvc.Models.Department>
+
+<h1>Department List</h1>
+
+<div>
+    <a asp-controller="Department" asp-action="Create">Create New Department</a>
+</div>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>Department Name</td>
+        <td>Description</td>
+        
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var dept in Model)
+    {
+        <tr>
+            <td>@dept.Id</td>
+            <td>@dept.Name</td>
+            <td>@dept.Description</td>
+           
+            <td>
+                <a asp-controller="Department" asp-action="Details" asp-route-id="@dept.Id">Details</a> | 
+                <a asp-controller="Department" asp-action="Update" asp-route-id="@dept.Id">Edit</a> |
+                <a asp-controller="Department" asp-action="Delete" asp-route-id="@dept.Id">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
